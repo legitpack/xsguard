@@ -11,15 +11,15 @@ function getRandomInt(min, max) {
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.username}!`);
-      client.user.setStatus('idle')
-      client.user.setPresence({
-          game: {
+    client.user.setStatus('idle')
+    client.user.setPresence({
+        game: {
               name: '>help || >invite',
               type: "STREAMING",
               url: "https://www.twitch.tv/xsguard"
-          }
-      });
-  });
+        }
+    });
+});
 
 client.on('message', async message => {
     if(message.author.bot) return;
@@ -113,10 +113,10 @@ client.on('message', async message => {
         let achievement = args.slice(0).join(' ');
         if(!achievement) achievement = "XSGuard"
 
-        message.channel.send(`**Napis będący na odznaczeniu:** ${achievement}`, {files: [`https://cdn.discordapp.com/attachments/474301742268547132/477078244437524480/inventory.png`]});
+        message.channel.send(`**Napis będący na odznaczeniu:** ${achievement}`, {files: [`https://cdn.discordapp.com/attachments/476648068469620736/477210205948608515/inventory.png`]});
     }
     if(command === "invite") {
-        message.author.send('**Oficjalny link który zaprasza** `XSGuard` **na twój serwer discord!**\nhttps://discordapp.com/api/oauth2/authorize?client_id=476478381576159235&permissions=8&scope=bot')
+        message.author.send('**Oficjalny link który zaprasza** `XSGuard` **na twój serwer discord!**\nhttps://discordapp.com/api/oauth2/authorize?client_id=476478381576159235&permissions=8&scope=bot');
     }
 });
 
