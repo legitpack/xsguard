@@ -1,1 +1,1 @@
-worker: xsguard.js
+worker: node xsguard.js
