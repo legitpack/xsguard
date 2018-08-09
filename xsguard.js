@@ -11,9 +11,10 @@ function getRandomInt(min, max) {
 }
 
 const rstatus = [
+    " ",
     "added >lenny | v1.1.2",
-    "added >status | v1.1.3",
-    "work >achievement | v1.1.4 soon"
+    "added >server | v1.1.3",
+    "working on >achievement | v1.1.4 soon"
 ];
 
 client.on('ready', () => {
