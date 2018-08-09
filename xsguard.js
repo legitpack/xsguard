@@ -77,7 +77,7 @@ client.on('message', async message => {
         message.author.send(':regional_indicator_p: :regional_indicator_o: :regional_indicator_m: :regional_indicator_o: :regional_indicator_c:\n**Dostępne komendy**\n`>4fun\n>minecraft\n>accessb\n>other`');
     }
     if(command === "4fun") {
-        message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>nutle\n>sowa\n>banana\n>lenny`');
+        message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>banana\n>lenny`');
     }
     if(command === "minecraft") {
         message.author.send(':regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_e: :regional_indicator_c: :regional_indicator_r: :regional_indicator_a: :regional_indicator_f: :regional_indicator_t:\n**Dostępne komendy**\n`>skin\n>hskin`');
