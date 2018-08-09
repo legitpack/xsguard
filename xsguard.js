@@ -3,27 +3,23 @@ const client = new Discord.Client({
     disableEveryone: true,
 })
 const litepack = require('./litepack.json');
-const bot = new Discord.Collection();
 
 
 function getRandomInt(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-const rstatus = [
-    " ",
-    "added >lenny | v1.1.2",
-    "added >server | v1.1.3",
-    "working on >achievement | v1.1.4 soon"
-];
-
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.username}!`);
-    setInterval(() => {
-        const index = Math.floor(Math.random() * (rstatus.length - 1) + 1);
-        client.user.setActivity(rstatus[index]);
-    }, 5000);
-});
+      client.user.setStatus('idle')
+      client.user.setPresence({
+          game: {
+              name: '>help || >invite',
+              type: "STREAMING",
+              url: "https://www.twitch.tv/xsguard"
+          }
+      });
+  });
 
 client.on('message', async message => {
     if(message.author.bot) return;
@@ -78,23 +74,17 @@ client.on('message', async message => {
           .catch(error => message.reply(`kulwa ${message.author} masz tu błynda i spiehtalaj : ${error}`));
         message.reply(`${member.user.tag} został kopnięty przez ${message.author.tag} z powodu: ${reason}`);
     }
-    if(command === "sowa") {
-        message.channel.send('brak słów do `j.polskiego`', {files: ["https://cdn.discordapp.com/attachments/476666040756207616/476672514802581505/unknown.png"]});
-    }
-    if(command === "nutle") {
-        message.channel.send('to jest właśnie `rudy` człowiek\nnutle siada na `butli` au au\nhttps://www.youtube.com/watch?v=YDoN1rxckR0', {files: ["https://media.discordapp.net/attachments/476666040756207616/476673151871483935/Ep7slLI.png"]});
-    }
     if(command === "help") {
         message.author.send(':regional_indicator_p: :regional_indicator_o: :regional_indicator_m: :regional_indicator_o: :regional_indicator_c:\n**Dostępne komendy**\n`>4fun\n>minecraft\n>accessb\n>other`');
     }
     if(command === "4fun") {
-        message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>nutle\n>sowa\n>banana\n>lenny`');
+        message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>banana\n>lenny`');
     }
     if(command === "minecraft") {
-        message.author.send(':regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_e: :regional_indicator_c: :regional_indicator_r: :regional_indicator_a: :regional_indicator_f: :regional_indicator_t:\n**Dostępne komendy**\n`>skin\n>hskin`');
+        message.author.send(':regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_e: :regional_indicator_c: :regional_indicator_r: :regional_indicator_a: :regional_indicator_f: :regional_indicator_t:\n**Dostępne komendy**\n`>skin\n>hskin\n>serwer`');
     }
     if(command === "other") {
-        message.author.send(':o: :regional_indicator_t: :regional_indicator_h: :regional_indicator_e: :regional_indicator_r:\n**Dostępne komendy**\n`brak`');
+        message.author.send(':o: :regional_indicator_t: :regional_indicator_h: :regional_indicator_e: :regional_indicator_r:\n**Dostępne komendy**\n`>achievement` 20%');
     }
     if(command === "skin") {
         let skin = args.slice(0).join(' ');
@@ -125,7 +115,9 @@ client.on('message', async message => {
 
         message.channel.send(`**Napis będący na odznaczeniu:** ${achievement}`, {files: [`https://cdn.discordapp.com/attachments/474301742268547132/477078244437524480/inventory.png`]});
     }
+    if(command === "invite") {
+        message.author.send('**Oficjalny link który zaprasza** `XSGuard` **na twój serwer discord!**\nhttps://discordapp.com/api/oauth2/authorize?client_id=476478381576159235&permissions=8&scope=bot')
+    }
 });
-
 
 client.login(process.env.BOT_TOKEN)
