@@ -127,4 +127,4 @@ client.on('message', async message => {
 });
 
 
-client.login(litepack.token)
+client.login(process.env.BOT_TOKEN)
