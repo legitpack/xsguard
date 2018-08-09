@@ -3,21 +3,25 @@ const client = new Discord.Client({
     disableEveryone: true,
 })
 const litepack = require('./litepack.json');
+const bot = new Discord.Collection();
+
 
 function getRandomInt(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+const rstatus = [
+    "added >lenny | v1.1.2",
+    "added >status | v1.1.3",
+    "work >achievement | v1.1.4 soon"
+];
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.username}!`);
-    client.user.setStatus('idle')
-    client.user.setPresence({
-        game: {
-            name: 'glam f kle || >help',
-            type: "STREAMING",
-            url: "https://www.twitch.tv/`"
-        }
-    });
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (rstatus.length - 1) + 1);
+        client.user.setActivity(rstatus[index]);
+    }, 5000);
 });
 
 client.on('message', async message => {
@@ -28,7 +32,7 @@ client.on('message', async message => {
 
     if(command === "ping") {
         const m = await message.channel.send(":ping_pong: ?");
-        m.edit(`:ping_pong: ! Obciążenie wynosi ${m.createdTimestamp - message.createdTimestamp}ms. Obciążenie wynosi API ${Math.round(client.ping)}ms`);
+        m.edit(`:ping_pong: ! Odpowiedź od serwera wyniosła ${m.createdTimestamp - message.createdTimestamp}ms. Odpowiedź od serwera API wyniosła ${Math.round(client.ping)}ms`);
     }
     if(command === "banana") {
         var banan = Math.floor(getRandomInt(1, 40));
@@ -73,11 +77,17 @@ client.on('message', async message => {
           .catch(error => message.reply(`kulwa ${message.author} masz tu błynda i spiehtalaj : ${error}`));
         message.reply(`${member.user.tag} został kopnięty przez ${message.author.tag} z powodu: ${reason}`);
     }
+    if(command === "sowa") {
+        message.channel.send('brak słów do `j.polskiego`', {files: ["https://cdn.discordapp.com/attachments/476666040756207616/476672514802581505/unknown.png"]});
+    }
+    if(command === "nutle") {
+        message.channel.send('to jest właśnie `rudy` człowiek\nnutle siada na `butli` au au\nhttps://www.youtube.com/watch?v=YDoN1rxckR0', {files: ["https://media.discordapp.net/attachments/476666040756207616/476673151871483935/Ep7slLI.png"]});
+    }
     if(command === "help") {
         message.author.send(':regional_indicator_p: :regional_indicator_o: :regional_indicator_m: :regional_indicator_o: :regional_indicator_c:\n**Dostępne komendy**\n`>4fun\n>minecraft\n>accessb\n>other`');
     }
     if(command === "4fun") {
-        message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>banana\n>lenny`');
+        message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>nutle\n>sowa\n>banana\n>lenny`');
     }
     if(command === "minecraft") {
         message.author.send(':regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_e: :regional_indicator_c: :regional_indicator_r: :regional_indicator_a: :regional_indicator_f: :regional_indicator_t:\n**Dostępne komendy**\n`>skin\n>hskin`');
@@ -106,9 +116,15 @@ client.on('message', async message => {
     if(command === "serwer") {
         let serwer = args.slice(0).join(' ');
         if(!serwer) serwer = "mc.hypixel.net";
-        message.channel.send(`**Informacje o serwerze:** ${serwer}`, {files: [`https://mcapi.us/server/image?ip=${serwer}&theme=dark.png`]})
+        message.channel.send(`**Informacje o serwerze:** ${serwer}`, {files: [`https://mcapi.us/server/image?ip=${serwer}&theme=dark.png`]});
+    }
+    if(command === "achievement") {
+        let achievement = args.slice(0).join(' ');
+        if(!achievement) achievement = "XSGuard"
+
+        message.channel.send(`**Napis będący na odznaczeniu:** ${achievement}`, {files: [`https://cdn.discordapp.com/attachments/474301742268547132/477078244437524480/inventory.png`]});
     }
 });
 
 
-client.login(process.env.BOT_TOKEN)
+client.login(litepack.token)
