@@ -73,12 +73,6 @@ client.on('message', async message => {
           .catch(error => message.reply(`kulwa ${message.author} masz tu błynda i spiehtalaj : ${error}`));
         message.reply(`${member.user.tag} został kopnięty przez ${message.author.tag} z powodu: ${reason}`);
     }
-    if(command === "sowa") {
-        message.channel.send('brak słów do `j.polskiego`', {files: ["https://cdn.discordapp.com/attachments/476666040756207616/476672514802581505/unknown.png"]});
-    }
-    if(command === "nutle") {
-        message.channel.send('to jest właśnie `rudy` człowiek\nnutle siada na `butli` au au\nhttps://www.youtube.com/watch?v=YDoN1rxckR0', {files: ["https://media.discordapp.net/attachments/476666040756207616/476673151871483935/Ep7slLI.png"]});
-    }
     if(command === "help") {
         message.author.send(':regional_indicator_p: :regional_indicator_o: :regional_indicator_m: :regional_indicator_o: :regional_indicator_c:\n**Dostępne komendy**\n`>4fun\n>minecraft\n>accessb\n>other`');
     }
