@@ -1,13 +1,13 @@
 {
   "name": "xsguard",
   "description": "xsguard",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "xsguard.js",
   "scripts": {
     "start": "node xsguard.js"
   },
   "dependencies": {
-    "discord.js": "11.1.0",
-    "request": "2.81.0"
+    "discord.js": "11.3.2",
+    "request": "2.87.0"
   }
 }
