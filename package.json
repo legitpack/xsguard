@@ -1,7 +1,7 @@
 {
   "name": "xsguard",
   "description": "xsguard",
-  "version": "1.33.7",
+  "version": "0.0.0",
   "main": "xsguard.js",
   "scripts": {
     "start": "node xsguard.js"
