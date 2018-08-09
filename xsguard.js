@@ -3,8 +3,6 @@ const client = new Discord.Client({
     disableEveryone: true,
 })
 const litepack = require('./litepack.json');
-const bot = new Discord.Collection();
-
 
 function getRandomInt(min, max) {
     return Math.random() * (max - min) + min;
