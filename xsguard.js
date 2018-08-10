@@ -124,5 +124,22 @@ client.on('message', async message => {
     if(command === "nutle") {
         message.channel.send('https://www.youtube.com/watch?v=YDoN1rxckR0');
     }
+    if(command === "play") {
+        let song = args.slice(0).join(' ');
+        if(!song) song = "Sexmasterka - RAK";
+
+        var opus = require('opusscript');
+        var VC = message.member.voiceChannel;
+        if (!VC)
+            return message.reply('Najpierw dołącz na kanał głosowy! `-----___-----`')
+        VC.join()
+            .then(connection => {
+                const dispatcher = connection.playFile(`./Songs/${song}.mp3`);
+                dispatcher.on("end", end => {VC.leave()});
+                message.channel.send(`Teraz gramy: **${song}**`)
+            })
+        .catch(console.error);
+    }
 });
+
 client.login(process.env.BOT_TOKEN)
