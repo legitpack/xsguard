@@ -10,7 +10,7 @@ function getRandomInt(min, max) {
 }
 
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user.username}!`);
+    console.log(`Logged in as ${client.user.username}\nAvalible on ${client.guilds.size} servers`);
     client.user.setStatus('idle')
     client.user.setPresence({
         game: {
@@ -112,12 +112,33 @@ client.on('message', async message => {
     if(command === "achievement") {
         let achievement = args.slice(0).join(' ');
         if(!achievement) achievement = "XSGuard"
-
-        message.channel.send(`**Napis będący na odznaczeniu:** ${achievement}`, {files: [`https://cdn.discordapp.com/attachments/476648068469620736/477210205948608515/inventory.png`]});
+        
+        message.channel.send(`**Napis będący na odznaczeniu:** ${achievement}`, {files: [`https://www.minecraftskinstealer.com/achievement/a.php?i=23&h=Achievement+get%21&t=${achievement}#.png`]});
     }
     if(command === "invite") {
         message.author.send('**Oficjalny link który zaprasza** `XSGuard` **na twój serwer discord!**\nhttps://discordapp.com/api/oauth2/authorize?client_id=476478381576159235&permissions=8&scope=bot');
     }
-});
+    if(command === "anale") {
+        message.author.send(':regional_indicator_a: :regional_indicator_n: :regional_indicator_a: :regional_indicator_l: :regional_indicator_e:\n**Dostępne komendy**\n`>nutle`')
+    }
+    if(command === "nutle") {
+        message.channel.send('https://www.youtube.com/watch?v=YDoN1rxckR0');
+    }
+    if(command === "play") {
+        let song = args.slice(0).join(' ');
+        if(!song) song = "Sexmasterka - RAK";
 
+        var opus = require('opusscript');
+        var VC = message.member.voiceChannel;
+        if (!VC)
+            return message.reply('Najpierw dołącz na kanał głosowy! `-----___-----`')
+        VC.join()
+            .then(connection => {
+                const dispatcher = connection.playFile(`./Songs/${song}.mp3`);
+                dispatcher.on("end", end => {VC.leave()});
+                message.channel.send(`Teraz gramy: **${song}**`)
+            })
+        .catch(console.error);
+    }
+});
 client.login(process.env.BOT_TOKEN)
