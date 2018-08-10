@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "xsguard.js",
   "scripts": {
-    "start": "node xsguard.js"
+    "start": "npm i ffmpeg-binaries@3.2.3"
   },
   "dependencies": {
     "discord.js": "^11.3.2",
