@@ -75,7 +75,7 @@ client.on('message', async message => {
         message.reply(`${member.user.tag} został kopnięty przez ${message.author.tag} z powodu: ${reason}`);
     }
     if(command === "help") {
-        message.author.send(':regional_indicator_p: :regional_indicator_o: :regional_indicator_m: :regional_indicator_o: :regional_indicator_c:\n**Dostępne komendy**\n`>4fun\n>minecraft\n>accessb\n>other`');
+        message.author.send(':regional_indicator_p: :regional_indicator_o: :regional_indicator_m: :regional_indicator_o: :regional_indicator_c:\n**Dostępne komendy**\n`>4fun\n>minecraft\n>accessb\n>other\n>anale`');
     }
     if(command === "4fun") {
         message.author.send(':four: :regional_indicator_f: :regional_indicator_u: :regional_indicator_n:\n**Dostępne komendy**\n`>banana\n>lenny`');
@@ -84,7 +84,7 @@ client.on('message', async message => {
         message.author.send(':regional_indicator_m: :regional_indicator_i: :regional_indicator_n: :regional_indicator_e: :regional_indicator_c: :regional_indicator_r: :regional_indicator_a: :regional_indicator_f: :regional_indicator_t:\n**Dostępne komendy**\n`>skin\n>hskin\n>serwer`');
     }
     if(command === "other") {
-        message.author.send(':o: :regional_indicator_t: :regional_indicator_h: :regional_indicator_e: :regional_indicator_r:\n**Dostępne komendy**\n`>achievement` 20%');
+        message.author.send(':regional_indicator_o: :regional_indicator_t: :regional_indicator_h: :regional_indicator_e: :regional_indicator_r:\n**Dostępne komendy**\n`>achievement`');
     }
     if(command === "skin") {
         let skin = args.slice(0).join(' ');
