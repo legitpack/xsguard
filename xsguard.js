@@ -107,7 +107,7 @@ client.on('message', async message => {
     if(command === "serwer") {
         let serwer = args.slice(0).join(' ');
         if(!serwer) serwer = "mc.hypixel.net";
-        message.channel.send(`**Informacje o serwerze:** ${serwer}`, {files: [`https://mcapi.us/server/image?ip=${serwer}&theme=dark.png`]});
+        message.channel.send(`**Informacje o serwerze:** ${serwer}`, {files: [`https://mcapi.us/server/image?ip=${serwer}&theme=dark#.png`]});
     }
     if(command === "achievement") {
         let achievement = args.slice(0).join(' ');
